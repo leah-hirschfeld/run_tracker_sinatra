@@ -1,0 +1,1 @@
+Run.create(length: "5k", date: 12-14-2020, location: "Oakland", description: "fast easy run")
