@@ -1,1 +1,8 @@
 <h1>Your list of runs! </h1>
+    <ul><% @runs.each do |run| %>
+        <br>
+        Length: <%= run.length %> <br>
+        Date: <%= run.date %> <br>
+        Location: <%= run.location %> <br>
+        Description: <%= run.description %> <br>
+    <% end %>
