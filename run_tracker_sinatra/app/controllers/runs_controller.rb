@@ -1,5 +1,4 @@
 class RunsController < ApplicationController
-    #:belongs_to User
 
     get "/runs" do #index
         @runs = Run.all
