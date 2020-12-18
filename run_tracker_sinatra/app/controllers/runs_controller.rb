@@ -1,7 +1,7 @@
 class RunsController < ApplicationController
 
-    get "/runs" do 
-        "runs"
+    get "/runs" do #index
+        erb :"runs/index"
     end
 
 
