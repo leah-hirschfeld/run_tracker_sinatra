@@ -1,7 +1,7 @@
 <h1>Your list of runs! </h1>
     <ul><% @runs.each do |run| %>
         <br>
-        Length: <%= run.length %> <br>
+        Length: <a href="runs/<%= run.id %>"> <%= run.length %> </a><br>
         Date: <%= run.date %> <br>
         Location: <%= run.location %> <br>
         Description: <%= run.description %> <br>
