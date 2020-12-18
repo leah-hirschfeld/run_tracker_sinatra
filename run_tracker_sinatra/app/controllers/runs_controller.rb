@@ -5,5 +5,8 @@ class RunsController < ApplicationController
         erb :"runs/index"
     end
 
-
+    get "/runs/:id" do #show
+        @run = Run.find_by(id: params[:id])
+        erb :"runs/show"
+    end
 end
