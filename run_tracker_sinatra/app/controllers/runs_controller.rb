@@ -5,13 +5,20 @@ class RunsController < ApplicationController
         erb :"runs/index"
     end
 
-    get "/runs/new" do #new - need to go before dynamic routes
+    get "/runs/new" do #new - need to go before dynamic routes; loads a form
         erb :"/runs/new"
+    end
+
+    post "/runs" do #create
     end
 
     get "/runs/:id" do #show
         @run = Run.find_by(id: params[:id])
-        erb :"runs/show"
+        if @run
+            erb :"runs/show"
+        else
+            redirect "/runs"
+        end
     end
     
 end
