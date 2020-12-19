@@ -22,5 +22,10 @@ class RunsController < ApplicationController
             redirect "/runs"
         end
     end
+
+    get "/runs/:id/edit" do
+        @run = Run.find_by(id: params[:id])
+        erb :"runs/edit"
+    end
     
 end
