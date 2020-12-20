@@ -1,8 +1,8 @@
 <h1> Edit your runs here! </h1>
-<form method="POST" action="/runs">
-    Length: <input type="string" name="length"> <br>
-    Date: <input type="date" name="date"> <br>
-    Location: <input type="string" name="location"> <br>
-    Description: <input type="string" name="description"> <br>
+<form method="POST" action="/runs/<%=@run.id%>">
+    Length: <input type="string" name="length" value="<%= @run.length %>"> <br>
+    Date: <input type="date" name="date" value="<%= @run.date %>"> <br>
+    Location: <input type="string" name="location" value="<%= @run.location %>"> <br>
+    Description: <input type="string" name="description" value="<%= @run.description %>"> <br>
     <input type="submit" value ="Add run">
 </form>
