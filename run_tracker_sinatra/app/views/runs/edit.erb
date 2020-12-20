@@ -1,5 +1,6 @@
 <h1> Edit your runs here! </h1>
-<form method="POST" action="/runs/<%=@run.id%>">
+<form method="POST" action="/runs/<%=@run.id%>/edit">
+    <input type="hidden" value="PATCH" name="_method">    
     Length: <input type="string" name="length" value="<%= @run.length %>"> <br>
     Date: <input type="date" name="date" value="<%= @run.date %>"> <br>
     Location: <input type="string" name="location" value="<%= @run.location %>"> <br>

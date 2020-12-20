@@ -28,4 +28,6 @@ class RunsController < ApplicationController
         erb :"runs/edit"
     end
     
+    patch "/runs/:id/edit" do #update
+    end
 end
