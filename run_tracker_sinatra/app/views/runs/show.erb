@@ -8,3 +8,9 @@
 <a href = "/runs/<%= @run.id %>/edit"> Edit your run </a> <br> <br>
 
 <a href = "/runs"> Return to list of runs </a>
+<br>
+<br>
+<form method="POST" action="/runs/<%=@run.id%>">
+    <input type="hidden" value="DELETE" name="_method">    
+    <input type="submit" value="Delete">
+</form>

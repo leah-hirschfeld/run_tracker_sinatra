@@ -34,4 +34,10 @@ class RunsController < ApplicationController
         redirect to "/runs/#{@run.id}"
     end
 
+    delete "/runs/:id" do #delete
+        @run = Run.find_by(id: params[:id])
+        @run.destroy
+        redirect "/runs"
+    end
+
 end
