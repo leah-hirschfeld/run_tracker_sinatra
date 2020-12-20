@@ -1,5 +1,5 @@
 <h1>Your list of runs! </h1> <br>
-<h4> <a href="runs/new>"> Add more runs here </a> </h4> <br>
+<h4> <a href = "/runs/new"> Add more runs here </a> </h4> <br>
     <ul><% @runs.each do |run| %>
         <br>
         Length: <a href="runs/<%= run.id %>"> <%= run.length %> </a><br>

@@ -29,5 +29,9 @@ class RunsController < ApplicationController
     end
     
     patch "/runs/:id/edit" do #update
+        @run = Run.find_by(id: params[:id])
+        @run.update(params[:run])
+        redirect to "/runs/#{@run.id}"
     end
+
 end
