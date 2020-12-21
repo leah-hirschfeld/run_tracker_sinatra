@@ -33,8 +33,8 @@ class RunsController < ApplicationController
     end
     
     patch "/runs/:id/edit" do #update
+        @run = Run.find_by(id: params[:id])
         if @run.user == current_user
-            @run = Run.find_by(id: params[:id])
             @run.update(params[:run])
             redirect to "/runs/#{@run.id}"
         else
@@ -43,8 +43,8 @@ class RunsController < ApplicationController
     end
 
     delete "/runs/:id" do #delete
+        @run = Run.find_by(id: params[:id])
         if @run.user == current_user
-            @run = Run.find_by(id: params[:id])
             @run.destroy
             redirect "/runs"
         else
