@@ -25,19 +25,31 @@ class RunsController < ApplicationController
 
     get "/runs/:id/edit" do #edit
         @run = Run.find_by(id: params[:id])
-        erb :"runs/edit"
+        if @run.user == current_user
+            erb :"runs/edit"
+        else
+            redirect to "/runs"
+        end
     end
     
     patch "/runs/:id/edit" do #update
-        @run = Run.find_by(id: params[:id])
-        @run.update(params[:run])
-        redirect to "/runs/#{@run.id}"
+        if @run.user == current_user
+            @run = Run.find_by(id: params[:id])
+            @run.update(params[:run])
+            redirect to "/runs/#{@run.id}"
+        else
+            redirect to "/runs"
+        end
     end
 
     delete "/runs/:id" do #delete
-        @run = Run.find_by(id: params[:id])
-        @run.destroy
-        redirect "/runs"
+        if @run.user == current_user
+            @run = Run.find_by(id: params[:id])
+            @run.destroy
+            redirect "/runs"
+        else
+            redirect to "/runs"
+        end
     end
 
 end
