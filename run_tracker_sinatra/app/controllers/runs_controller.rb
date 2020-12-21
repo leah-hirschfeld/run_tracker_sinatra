@@ -5,7 +5,7 @@ class RunsController < ApplicationController
     end
 
     post "/runs" do #create
-        run = Run.create(params)
+        run = current_user.runs.create(params)
         redirect to "/runs"
     end
 
