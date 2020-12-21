@@ -10,7 +10,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "/runs"
         else
-            redirect to "/signup"
+            @errors = user.errors.full_messages.join(" - ")
+            erb :"users/new"
         end
     end
 

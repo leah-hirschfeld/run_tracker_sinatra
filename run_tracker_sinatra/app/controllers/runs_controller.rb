@@ -23,7 +23,7 @@ class RunsController < ApplicationController
         end
     end
 
-    get "/runs/:id/edit" do
+    get "/runs/:id/edit" do #edit
         @run = Run.find_by(id: params[:id])
         erb :"runs/edit"
     end
