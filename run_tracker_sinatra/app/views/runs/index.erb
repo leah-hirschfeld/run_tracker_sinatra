@@ -7,3 +7,8 @@
         Location: <%= run.location %> <br>
         Description: <%= run.description %> <br>
     <% end %>
+
+    <br>
+        <% if logged_in? %>
+            <h3> You are logged in as: <%= current_user.username %> </h3>
+        <% end %>
