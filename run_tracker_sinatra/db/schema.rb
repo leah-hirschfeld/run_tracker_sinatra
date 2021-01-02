@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 20201221032547) do
     t.integer "user_id"
   end
 
-  create_table "useres", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
