@@ -1,20 +1,20 @@
 class RunsController < ApplicationController
 
-    get "/runs/new" do #new - need to go before dynamic routes; loads a form
+    get "/runs/new" do
         erb :"/runs/new"
     end
 
-    post "/runs" do #create
+    post "/runs" do
         run = current_user.runs.create(params)
         redirect to "/runs"
     end
 
-    get "/runs" do #index
+    get "/runs" do
         @runs = Run.all
         erb :"runs/index"
     end
 
-    get "/runs/:id" do #show
+    get "/runs/:id" do
         @run = Run.find_by(id: params[:id])
         if @run
             erb :"runs/show"
@@ -23,7 +23,7 @@ class RunsController < ApplicationController
         end
     end
 
-    get "/runs/:id/edit" do #edit
+    get "/runs/:id/edit" do
         @run = Run.find_by(id: params[:id])
         if @run.user == current_user
             erb :"runs/edit"
@@ -32,7 +32,7 @@ class RunsController < ApplicationController
         end
     end
     
-    patch "/runs/:id/edit" do #update
+    patch "/runs/:id/edit" do
         @run = Run.find_by(id: params[:id])
         if @run.user == current_user
             @run.update(params[:run])
@@ -42,7 +42,7 @@ class RunsController < ApplicationController
         end
     end
 
-    delete "/runs/:id" do #delete
+    delete "/runs/:id" do
         @run = Run.find_by(id: params[:id])
         if @run.user == current_user
             @run.destroy
